@@ -133,7 +133,7 @@ const Home = () => {
             className="light-bg-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight sm:leading-none"
           >
             I Build Websites That{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500">
+            <span className="hero-highlight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500">
               Grow Your Business
             </span>
           </motion.h1>

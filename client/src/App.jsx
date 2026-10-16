@@ -52,7 +52,11 @@ function App() {
     <ThemeProvider>
       <PackageProvider>
         <Router>
-          <div className="relative min-h-screen flex flex-col bg-transparent text-[#FFFFFF] transition-colors duration-300">
+          <div className="app-shell relative min-h-screen flex flex-col bg-transparent text-[#17151F] transition-colors duration-300">
+            <div className="blob-layer blob-one" aria-hidden="true" />
+            <div className="blob-layer blob-two" aria-hidden="true" />
+            <div className="blob-layer blob-three" aria-hidden="true" />
+            <div className="blob-layer blob-four" aria-hidden="true" />
             {/* Scroll Progress Bar at top */}
             <ScrollProgressBar />
 

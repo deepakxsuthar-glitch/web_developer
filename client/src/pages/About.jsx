@@ -59,13 +59,13 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mt-12">
           {/* Avatar / Brand Image */}
           <div className="md:col-span-5 relative">
-            <div className="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900 group">
+            <div className="about-profile-card relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900 group">
               <img
                 src="/images/about-profile.webp"
                 alt="Deepak - Junior Web Developer"
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-[400px] object-cover object-center group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
+              <div className="about-profile-overlay absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <p className="text-xs font-mono text-cyan-400">Junior Full-Stack Developer</p>
                 <h3 className="text-xl font-bold text-white">Deepak</h3>

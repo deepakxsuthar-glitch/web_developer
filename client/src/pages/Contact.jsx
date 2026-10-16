@@ -169,7 +169,7 @@ const Contact = () => {
 
         {/* Right Col: The Contact Form */}
         <div className="lg:col-span-7">
-          <div className="p-8 sm:p-10 rounded-3xl glass-panel shadow-2xl">
+          <div className="contact-form p-8 sm:p-10 rounded-3xl glass-panel shadow-2xl">
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-white">Send a Project Inquiry</h2>
               <p className="text-slate-400 text-xs sm:text-sm mt-1">
