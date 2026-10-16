@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #171717;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+  }
+
+}
+
+.site-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #171717;
+}
+
+.site-background-image {
+  position: absolute;
+  inset: -3%;
+  background-image: linear-gradient(rgba(23, 23, 23, 0.38), rgba(23, 23, 23, 0.38)), url('/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform, background-position;
+}
+
+/* Dark ink for text placed directly over the brighter paper background. */
+.light-bg-heading {
+  color: #172033 !important;
+}
+
+.light-bg-copy {
+  color: #334155 !important;
+}
+
+.light-bg-copy .text-cyan-400 { color: #0e7490 !important; }
+.light-bg-copy .text-purple-400 { color: #7e22ce !important; }
+.light-bg-copy .text-blue-400 { color: #1d4ed8 !important; }
+
+/* Translucent glass surfaces inherit the brighter background, so use ink there too. */
+.glass-panel .text-white:not(.btn-magenta-gradient) { color: #172033 !important; }
+.glass-panel .text-slate-200,
+.glass-panel .text-slate-300,
+.glass-panel .text-slate-400,
+.glass-panel [class~="text-[#B8B8C7]"] { color: #334155 !important; }
+.glass-panel .btn-magenta-gradient,
+.glass-panel .btn-magenta-gradient .text-white { color: #fff !important; }
+
+.site-background-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+@keyframes heroBgFloat {
+  0% {
+    transform: scale(1);
+    background-position: center 0%;
+  }
+  50% {
+    transform: scale(1.04);
+    background-position: center 50%;
+  }
+  100% {
+    transform: scale(1.08);
+    background-position: center 100%;
+  }
+}
+
+/* Soft animated fog that is shared by every route. */
+.fog-layer {
+  position: absolute;
+  inset: -18%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.42;
+  filter: blur(70px);
+  mix-blend-mode: screen;
+  will-change: transform;
+  transform: translate3d(var(--pointer-x, 0px), var(--pointer-y, 0px), 0);
+}
+
+.fog-layer-primary {
+  background:
+    radial-gradient(38% 34% at 22% 34%, rgba(199, 27, 255, 0.34), transparent 72%),
+    radial-gradient(34% 42% at 76% 70%, rgba(72, 68, 255, 0.2), transparent 74%);
+  animation: fogDriftPrimary 18s ease-in-out infinite alternate;
+}
+
+.fog-layer-secondary {
+  background:
+    radial-gradient(30% 28% at 70% 20%, rgba(0, 210, 255, 0.14), transparent 72%),
+    radial-gradient(28% 35% at 30% 82%, rgba(138, 15, 181, 0.18), transparent 74%);
+  opacity: 0.3;
+  animation: fogDriftSecondary 24s ease-in-out infinite alternate;
+}
+
+@keyframes fogDriftPrimary {
+  from { scale: 1; rotate: -2deg; }
+  to { scale: 1.08; rotate: 3deg; }
+}
+
+@keyframes fogDriftSecondary {
+  from { scale: 1.08; rotate: 2deg; }
+  to { scale: 1; rotate: -3deg; }
+}
+
+/* Shared scroll-in motion for route content. */
+.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 480ms ease var(--reveal-delay, 0ms), transform 480ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+  backface-visibility: hidden;
+}
+
+.scroll-reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fog-layer { animation: none; }
+  .scroll-reveal { opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 768px) {
+  .site-background-image { background-position: 40% center !important; }
+}
+
+/* Glassmorphism Classes (apply to navbar, cards, pricing cards, forms, modals, footer) */
+.glass-panel,
+.glass-card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(18px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(140%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover,
+.glass-card:hover {
+  border-color: rgba(199, 27, 255, 0.6) !important;
+  box-shadow: 0 0 30px rgba(199, 27, 255, 0.35), 0 12px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+  transform: translateY(-6px);
+}
+
+/* Specific Glowing Border for Most Popular Card */
+.glow-border {
+  position: relative;
+}
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #C71BFF, #8A0FB5, #7B2FF7);
+  border-radius: 22px;
+  z-index: -1;
+  animation: borderRotate 4s linear infinite;
+  box-shadow: 0 0 30px rgba(199, 27, 255, 0.4);
+}
+
+@keyframes borderRotate {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Glass Inputs with Magenta focus */
+.glass-input {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 14px !important;
+  color: #FFFFFF !important;
+  transition: all 0.2s ease;
+}
+.glass-input:focus {
+  border-color: #C71BFF !important;
+  box-shadow: 0 0 0 3px rgba(199, 27, 255, 0.25), 0 0 20px rgba(199, 27, 255, 0.35) !important;
+  outline: none;
+}
+
+/* Theme Button: #C71BFF -> #7B2FF7 with glass shine */
+.btn-magenta-gradient {
+  background: linear-gradient(135deg, #C71BFF 0%, #7B2FF7 100%) !important;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(199, 27, 255, 0.35);
+}
+.btn-magenta-gradient::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: rotate(30deg) translateY(-100%);
+  transition: transform 0.6s ease;
+}
+.btn-magenta-gradient:hover::after {
+  transform: rotate(30deg) translateY(100%);
+}
+.btn-magenta-gradient:hover {
+  box-shadow: 0 0 30px rgba(199, 27, 255, 0.6) !important;
+  transform: translateY(-2px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #171717;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a35;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C71BFF;
+}
+
+/* Custom cursor */
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor-enabled {
+    cursor: none;
+  }
+  body.custom-cursor-enabled a,
+  body.custom-cursor-enabled button,
+  body.custom-cursor-enabled input,
+  body.custom-cursor-enabled select,
+  body.custom-cursor-enabled textarea {
+    cursor: none;
+  }
+}

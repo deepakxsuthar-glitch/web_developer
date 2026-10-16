@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="deepakFaviconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="#0b0f19" />
+  <!-- Left bracket < -->
+  <path d="M 28 35 L 18 50 L 28 65" fill="none" stroke="url(#deepakFaviconGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Monogram D -->
+  <path d="M 40 30 L 52 30 C 65 30 73 38 73 50 C 73 62 65 70 52 70 L 40 70 Z M 48 40 L 48 60 L 52 60 C 58 60 63 56 63 50 C 63 44 58 40 52 40 Z" fill="url(#deepakFaviconGrad)" />
+  <!-- Right slash > -->
+  <path d="M 72 35 L 82 50 L 72 65" fill="none" stroke="url(#deepakFaviconGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
