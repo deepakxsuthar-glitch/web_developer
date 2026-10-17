@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ThemeProvider } from './context/ThemeContext';
 import { PackageProvider } from './context/PackageContext';
@@ -79,7 +79,7 @@ function App() {
                   <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
                   <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
                   <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
-                  <Route path="/projects" element={<PageWrapper><Services /></PageWrapper>} />
+                  <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
                   <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
                   <Route path="/faq" element={<PageWrapper><FAQ /></PageWrapper>} />
                   <Route path="/admin" element={<PageWrapper><Admin /></PageWrapper>} />
